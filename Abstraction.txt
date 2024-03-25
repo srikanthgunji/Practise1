@@ -1,0 +1,111 @@
+using System;
+public abstract class A{
+    public abstract double Area();
+    
+}
+public class B:A{
+    private double rad; 
+    public B(double rad){
+        this.rad=rad;
+        
+    }
+    public override double Area(){
+        return  Math.PI* rad * rad ;
+    }
+}
+public class C:A{
+    private double len;
+    private double wid;
+    public C(double len, double wid){
+        this.len=len;
+        this.wid=wid;
+    }
+    public override double Area(){
+        return len * wid;
+    }
+}
+
+class program{
+    static void Main(){
+        C obj=new C(2,4);
+        B obj1=new B(6);
+       Console.WriteLine(obj.Area());
+       Console.WriteLine(obj1.Area());
+    }
+}
+ex 2:
+using System;
+public abstract class Animal{
+    public abstract void Type();
+}
+public class Lion:Animal {
+    //Console.WriteLine("preys on other animals");
+    public override void Type(){
+        Console.WriteLine("Carnivores");
+    }
+}
+public class Rabbit:Animal{
+    //Console.WriteLine(" eats only grass");
+    public override void Type(){
+        Console.WriteLine("Herbivores");
+    }
+}
+public class Human:Animal{
+    //Console.WriteLine("Eats both");
+    public override void Type(){
+        Console.WriteLine("Human beings");
+    }
+}
+class Program{
+    static void Main(){
+        Human H=new Human();
+        H.Type();
+    }
+}
+ex 3:
+using System;
+public abstract class employee{
+    public abstract double salary();
+}
+public class Expe : employee{
+    double exp;
+    public Expe(double exp){
+        this.exp=exp;
+    }
+    public override double salary(){
+        if (exp>=1){
+            return 20000;
+        }
+        else{
+            return 15000;
+        }
+    }
+    
+}
+public class Level: employee{
+    double lev;
+    public Level(double lev){
+        this.lev=lev;
+    }
+    public override double salary(){
+        if(lev>1){
+            return 25000;
+        }
+        else{
+            return 30000;
+        }
+    }
+} 
+class Program{
+    static void Main(){
+        Level l1=new Level(2);
+        Console.WriteLine("Salary" + "  " +l1.salary());
+    }
+}
+////
+Abstract classes cannot be instantiated; they provide a blueprint for subclasses.
+Abstract methods are declared without implementation in abstract classes.
+Concrete subclasses must implement all abstract methods from their abstract superclass.
+Abstract classes can also contain concrete methods with implementation.
+Abstract methods must be overridden by concrete subclasses.
+They enable polymorphism and facilitate code reuse and maintenance.
